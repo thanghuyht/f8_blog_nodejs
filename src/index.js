@@ -6,8 +6,15 @@ const handlebars = require("express-handlebars");
 const app = express();
 const port = 3001;
 
+app.use(express.static(path.resolve(__dirname, "public")));
+
 //HTTP logger
 app.use(morgan("combined"));
+
+handlebars.create({
+  partialsDir: [, "views/partials/"],
+  // partialsDir: ["shared/templates/", "views/partials/"],
+});
 
 //Template Engine
 app.engine(".hbs", handlebars.engine({ extname: ".hbs" }));
