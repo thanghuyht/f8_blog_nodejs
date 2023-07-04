@@ -1,1 +1,20 @@
-<h1>Hello World</h1>
+<div class='container-sm'>
+    <h2 class='mt-4'>
+        Home
+        <div class='row'>
+            {{#each courses}}
+                <div class='col-3 col-sm-4 mb-3'>
+                    <div class='card'>
+                        <img src={{this.imageThumb}} class='card-img-top' alt={{this.title}} />
+                        <div class='card-body'>
+                            <h5 class='card-title'>{{this.title}}</h5>
+                            <p class='card-text'>{{this.decrip}}</p>
+                            <a href='#' class='btn btn-primary'>Buy</a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+
+    </h2>
+</div>

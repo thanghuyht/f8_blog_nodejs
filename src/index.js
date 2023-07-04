@@ -1,32 +1,32 @@
-const express = require("express");
-const morgan = require("morgan");
-const path = require("path");
-const handlebars = require("express-handlebars");
+const express = require('express')
+const morgan = require('morgan')
+const path = require('path')
+const handlebars = require('express-handlebars')
 
-const app = express();
-const port = 3001;
+const route = require('./routers/')
+const app = express()
+const port = 3001
 
-app.use(express.static(path.resolve(__dirname, "public")));
+const db = require("./config/db")
+db.connect();
+app.use(express.static(path.resolve(__dirname, 'public')))
 
 //HTTP logger
-app.use(morgan("combined"));
+app.use(morgan('combined'))
 
 handlebars.create({
-  partialsDir: [, "views/partials/"],
+  partialsDir: [, 'views/partials/'],
   // partialsDir: ["shared/templates/", "views/partials/"],
-});
+})
 
 //Template Engine
-app.engine(".hbs", handlebars.engine({ extname: ".hbs" }));
-app.set("view engine", ".hbs");
-app.set("views", path.resolve(__dirname, "resources/views"));
+app.engine('.hbs', handlebars.engine({ extname: '.hbs' }))
+app.set('view engine', '.hbs')
+app.set('views', path.resolve(__dirname, 'resources', 'views'))
 
-//router
-app.get("/", (req, res) => {
-  res.render("home");
-});
-
+//router init
+route(app)
 //http://localhost:3000/
 app.listen(port, () => {
-  console.log(`Express-handlebars example server listening on: ${port}`);
-});
+  console.log(`Express-handlebars example server listening on: ${port}`)
+})
