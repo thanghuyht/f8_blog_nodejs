@@ -1,0 +1,25 @@
+<div class='container my-2'>
+    <div class='row h-100'>
+        <div class='col-md-3 p-0'>
+            <div class='bg-light me-2 h-100 d-flex flex-column'>
+                <button class='btn btn-primary'>Mua ngay khóa học</button>
+            </div>
+        </div>
+        <div class='col-md-9 bg-light p-3'>
+            <h1>{{course.title}}</h1>
+            <div class='d-flex justify-content-center py-2'>
+                <iframe
+                    width='560'
+                    height='315'
+                    src='https://www.youtube.com/embed/{{course.videoId}}'
+                    title='{{course.title}}'
+                    frameborder='0'
+                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <p class='mt-2'>{{course.describe}}</p>
+        </div>
+    </div>
+</div>

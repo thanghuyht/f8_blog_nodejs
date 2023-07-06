@@ -1,14 +1,22 @@
-<div class='container-sm'>
+<div class='container'>
     <h2 class='mt-4'>
         Home
         <div class='row'>
             {{#each courses}}
-                <div class='col-3 col-sm-4 mb-3'>
+                <div class='col-sm-6 col-lg-4'>
                     <div class='card'>
-                        <img src={{this.imageThumb}} class='card-img-top' alt={{this.title}} />
+                        <a href='/courses/{{this.slug}}'>
+                            <img
+                                src='https://i.ytimg.com/vi/{{this.videoId}}/hq720.jpg'
+                                class='card-img-top'
+                                alt={{this.title}}
+                            />
+                        </a>
                         <div class='card-body'>
-                            <h5 class='card-title'>{{this.title}}</h5>
-                            <p class='card-text'>{{this.decrip}}</p>
+                            <a href='/courses/{{this.slug}}'>
+                                <h5 class='card-title'>{{this.title}}</h5>
+                            </a>
+                            <p class='card-text'>{{this.describe}}</p>
                             <a href='#' class='btn btn-primary'>Buy</a>
                         </div>
                     </div>

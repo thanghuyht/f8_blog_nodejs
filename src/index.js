@@ -1,4 +1,5 @@
 const express = require('express')
+
 const morgan = require('morgan')
 const path = require('path')
 const handlebars = require('express-handlebars')
@@ -6,6 +7,9 @@ const handlebars = require('express-handlebars')
 const route = require('./routers/')
 const app = express()
 const port = 3001
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const db = require("./config/db")
 db.connect();
